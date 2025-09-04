@@ -1,0 +1,17 @@
+week_start,student_id,ders,konu,birim,miktar,kaynak,durum
+2025-09-01,1,Türkçe,"Sözcükte Anlam, Deyimler ve Atasözleri",Dakika,90,,False
+2025-08-01,3,Türkçe,"Sözcükte Anlam, Deyimler ve Atasözleri",Dakika,90,,True
+2025-09-01,1,Türkçe,"Cümle Bilgisi, Yorumu ve Cümlede Kavramlar (Cümlede Anlam)",Dakika,90,,False
+2025-09-01,1,Türkçe,Ses Bilgisi,Dakika,90,,False
+2025-09-01,2,Türkçe,"Cümle Bilgisi, Yorumu ve Cümlede Kavramlar (Cümlede Anlam)",Dakika,111,,False
+2025-09-08,3,Türkçe,"Paragrafta Anlam, Anlatım Biçimleri",Dakika,111,,False
+2025-09-01,1,Türkçe,"Paragrafta Anlam, Anlatım Biçimleri",Video,1,Paragraf Kampı - Günlük 20 dk,False
+2025-09-01,2,Türkçe,"Cümle Bilgisi, Yorumu ve Cümlede Kavramlar (Cümlede Anlam)",Soru,333,X Yayınları - TYT Türkçe Soru Bankası,False
+2025-09-01,1,Türkçe,"Cümle Bilgisi, Yorumu ve Cümlede Kavramlar (Cümlede Anlam)",Soru,20,X Yayınları - TYT Türkçe Soru Bankası,False
+2025-09-01,1,Türkçe,"Sözcükte Anlam, Deyimler ve Atasözleri",Soru,20,X Yayınları - TYT Türkçe Soru Bankası,False
+2025-09-01,1,Türkçe,"Paragrafta Anlam, Anlatım Biçimleri",Soru,20,X Yayınları - TYT Türkçe Soru Bankası,False
+2025-09-01,2,Türkçe,"Sözcükte Anlam, Deyimler ve Atasözleri",Dakika,300,,False
+2025-09-08,2,Türkçe,"Cümle Bilgisi, Yorumu ve Cümlede Kavramlar (Cümlede Anlam)",Dakika,360,,False
+2025-09-15,2,Türkçe,"Paragrafta Anlam, Anlatım Biçimleri",Dakika,630,,False
+2025-09-01,2,Türkçe,Cümle Çeşitleri,Dakika,195,,False
+2025-09-01,2,Türkçe,Anlatım Bozukluğu,Dakika,270,,False

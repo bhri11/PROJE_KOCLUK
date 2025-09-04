@@ -1,0 +1,5 @@
+student_id,student_name,active,created_at
+1,deli,False,2025-09-01T18:56:24
+2,mehmet,True,2025-09-01T18:57:03
+3,ahmet,True,2025-09-01T18:59:49
+4,bahri,True,2025-09-02T16:07:14

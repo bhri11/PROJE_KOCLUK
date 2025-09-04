@@ -1,0 +1,7 @@
+{
+  "level": "beginner",
+  "daily_minutes": 90,
+  "study_days": ["Mon", "Wed", "Fri", "Sun"],
+  "start_date": "2025-09-01",
+  "locale": "tr-TR"
+}
