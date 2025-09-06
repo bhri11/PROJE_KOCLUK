@@ -1,5 +1,24 @@
-resource_id,name,type,subject,total_items,notes
-1,X Yayınları - TYT Türkçe Soru Bankası,Soru,Türkçe,1200,Baskı-2024
-2,Mehmet Hoca - TYT Matematik Konu Anlatımı,Video,Matematik,100,YouTube playlist
-3,Y Yayınları - TYT Matematik Soru Bankası,Soru,Matematik,1500,Zorluk karışık
-4,Paragraf Kampı - Günlük 20 dk,Video,Türkçe,30,Kısa videolar
+resource_id,name,type,subject,area,difficulty,total_items,notes
+1,X Yayınları - TYT Türkçe Soru Bankası,Soru,Türkçe,Genel,Orta,1200,"Baskı-2024; ÖSYM seviyesine yakın kaliteli karışık soru seti."
+2,Mehmet Hoca - TYT Matematik Konu Anlatımı,Video,Matematik,Genel,Başlangıç,100,"YouTube playlist; konsept örnek amaçlı."
+3,Y Yayınları - TYT Matematik Soru Bankası,Soru,Matematik,Genel,İleri,1500,"Zorluk karışık; matematik örneği."
+4,Paragraf Kampı - Günlük 20 dk,Video,Türkçe,Paragraf,Başlangıç,30,"Kısa videolar; günlük alışkanlık için."
+5,karakok yayinlari ayt matematik soru bankasi,Soru,Matematik,Genel,İleri,1000,"Örnek veri – matematik."
+6,345 TYT Türkçe Soru Bankası,Soru,Türkçe,Genel,Orta,0,"Video çözümlü; sayfa düzeni geniş; orta–zor arası; detaylı ve analizli çözümler."
+7,Aydın TYT Türkçe Soru Bankası,Soru,Türkçe,Genel,Başlangıç,0,"Video çözümlü ve anlaşılır; temel seviye için uygun, konu anlatımlı yapı."
+8,Palme TYT Türkçe Soru Bankası,Soru,Türkçe,Genel,Orta,0,"Video çözümleri anlaşılır; kaliteli sorular; Aydın’a benzer zorluk."
+9,Çap TYT Türkçe Soru Bankası,Soru,Türkçe,Genel,Orta,0,"Video çözümleri mevcut; öğretici, seçici; çözüm kalitesi ortalama."
+10,Yanıt Yayınları TYT Türkçe Soru Bankası,Soru,Türkçe,Genel,Orta,0,"Çözümler var ancak ilk izleyişte zor; ikinci kaynak olarak uygun."
+11,Bilgi Sarmal TYT Türkçe Soru Bankası,Soru,Türkçe,Genel,İleri,0,"Kaliteli baskı ve soru seti; zorluk seviyesi yüksek; ÖSYM’ye yakın/üstü."
+12,Limit Yayınları TYT Türkçe Soru Bankası,Soru,Türkçe,Genel,Orta,0,"Anlaşılır video çözümleri; seviye sınav ve üzeri; gelişim sonrası uygun."
+13,Yayın Denizi TYT Türkçe Soru Bankası,Soru,Türkçe,Genel,Orta,0,"Video çözümleri anlaşılır; orta–zor; sınava yakın seviye."
+14,Toprak Yayınları TYT Türkçe Soru Bankası,Soru,Türkçe,Genel,İleri,0,"Anlaşılır çözümler; üst seviye; sonlara doğru zorlayıcı sorular."
+15,Tonguç Yayınları Paragraf Soru Bankası,Soru,Türkçe,Paragraf,Başlangıç,0,"Uygulama ve video çözümleriyle anlaşılır; başlangıç için ideal."
+16,Tonguç Yayınları Paradox Paragraf Soru Bankası,Soru,Türkçe,Paragraf,İleri,0,"Sorular uzun/kapalı; yüksek zorluk; ileri seviye çalışması."
+17,Hız ve Renk Paragraf Soru Bankası,Soru,Türkçe,Paragraf,Başlangıç,0,"Temel–kolay seviyede; alışkanlık kazanmak için birebir."
+18,Bilgi Sarmal Paragraf Soru Bankası,Soru,Türkçe,Paragraf,Orta,0,"Başarılı video çözümleri; ikinci kaynak olarak güçlü tercih."
+19,3D Yayınları Paragraf Soru Bankası,Soru,Türkçe,Paragraf,Orta,0,"Açıklayıcı çözümler; orta–üst zorluk; 2./3. kaynak için ideal."
+20,Benim Hocam Taktiklerle Dil Bilgisi Soru Bankası,Soru,Türkçe,Dil Bilgisi,Başlangıç,0,"YouTube ile paralel; anlaşılır ve temel seviye."
+21,Tonguç Yayınları Gramatik Dil Bilgisi Soru Bankası,Soru,Türkçe,Dil Bilgisi,Orta,0,"Video çözümleri var; orta seviye; YouTube ile desteklenebilir."
+22,Miray Yayınları Dil Bilgisi Soru Bankası,Soru,Türkçe,Dil Bilgisi,Orta,0,"Anlaşılır çözümler; orta zorluk; ilk/ikinci kaynak olabilir."
+23,Bilgi Sarmal Dil Bilgisi Soru Bankası,Soru,Türkçe,Dil Bilgisi,İleri,0,"Zorlayıcı ve kaliteli; ÖSYM seviyesine çok yakın."

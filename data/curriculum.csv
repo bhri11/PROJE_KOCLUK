@@ -1,13 +1,25 @@
-student_id,ders,order,konu,birim,miktar,kaynak
-2,Türkçe,1,"Sözcükte Anlam, Deyimler ve Atasözleri",Dakika,300,
-2,Türkçe,2,"Cümle Bilgisi, Yorumu ve Cümlede Kavramlar (Cümlede Anlam)",Dakika,360,
-2,Türkçe,3,"Paragrafta Anlam, Anlatım Biçimleri",Dakika,630,
-2,Türkçe,4,Ses Bilgisi,Dakika,270,
-2,Türkçe,5,Yazım Kuralları,Dakika,315,
-2,Türkçe,6,Noktalama İşaretleri,Dakika,240,
-2,Türkçe,7,Sözcük Yapısı ve Ekler,Dakika,390,
-2,Türkçe,8,"İsim Soylu Sözcükler (İsim, Sıfat, Zamir, Zarf, Edat, Bağlaç)",Dakika,990,
-2,Türkçe,9,"Fiiller, Ek Fiil, Fiilimsiler, Fiilde Yapı",Dakika,660,
-2,Türkçe,10,Cümlenin Ögeleri,Dakika,255,
-2,Türkçe,11,Cümle Çeşitleri,Dakika,195,
-2,Türkçe,12,Anlatım Bozukluğu,Dakika,270,
+student_id,ders,order,konu,birim,miktar,kaynak,tamam
+2,Türkçe,1,"Sözcükte Anlam, Deyimler ve Atasözleri",Dakika,300,,True
+2,Türkçe,2,"Cümle Bilgisi, Yorumu ve Cümlede Kavramlar (Cümlede Anlam)",Dakika,360,,True
+2,Türkçe,3,"Paragrafta Anlam, Anlatım Biçimleri",Dakika,630,,True
+2,Türkçe,4,Ses Bilgisi,Dakika,270,,True
+2,Türkçe,5,Yazım Kuralları,Dakika,315,,True
+2,Türkçe,6,Noktalama İşaretleri,Dakika,240,,False
+2,Türkçe,7,Sözcük Yapısı ve Ekler,Dakika,390,,False
+2,Türkçe,8,"İsim Soylu Sözcükler (İsim, Sıfat, Zamir, Zarf, Edat, Bağlaç)",Dakika,990,,False
+2,Türkçe,9,"Fiiller, Ek Fiil, Fiilimsiler, Fiilde Yapı",Dakika,660,,False
+2,Türkçe,10,Cümlenin Ögeleri,Dakika,255,,False
+2,Türkçe,11,Cümle Çeşitleri,Dakika,195,,False
+2,Türkçe,12,Anlatım Bozukluğu,Dakika,270,,False
+3,Türkçe,1,"Sözcükte Anlam, Deyimler ve Atasözleri",Dakika,60,,False
+3,Türkçe,2,"Cümle Bilgisi, Yorumu ve Cümlede Kavramlar (Cümlede Anlam)",Dakika,135,,False
+3,Türkçe,3,"Paragrafta Anlam, Anlatım Biçimleri",Dakika,150,,False
+3,Türkçe,4,Ses Bilgisi,Dakika,60,,False
+3,Türkçe,5,Yazım Kuralları,Dakika,105,,False
+3,Türkçe,6,Noktalama İşaretleri,Dakika,75,,False
+3,Türkçe,7,Sözcük Yapısı ve Ekler,Dakika,120,,False
+3,Türkçe,8,"İsim Soylu Sözcükler (İsim, Sıfat, Zamir, Zarf, Edat, Bağlaç)",Dakika,135,,False
+3,Türkçe,9,"Fiiller, Ek Fiil, Fiilimsiler, Fiilde Yapı",Dakika,240,,False
+3,Türkçe,10,Cümlenin Ögeleri,Dakika,90,,False
+3,Türkçe,11,Cümle Çeşitleri,Dakika,90,,False
+3,Türkçe,12,Anlatım Bozukluğu,Dakika,120,,False

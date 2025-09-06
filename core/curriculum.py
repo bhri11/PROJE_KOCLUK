@@ -1,13 +1,14 @@
 # core/curriculum.py
 from pathlib import Path
 import pandas as pd
-from .dataio import load_topics, level_to_col
+
+from core.dataio import load_topics, level_to_col, load_progress  # mutlak import
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 CURR = DATA / "curriculum.csv"
 
-_COLS = ["student_id","ders","order","konu","birim","miktar","kaynak"]
+_COLS = ["student_id","ders","order","konu","birim","miktar","kaynak","tamam"]
 
 def _empty_df() -> pd.DataFrame:
     return pd.DataFrame(columns=_COLS)
@@ -22,10 +23,13 @@ def load_curriculum() -> pd.DataFrame:
     for c in ["student_id","order","miktar"]:
         if c in df.columns:
             df[c] = pd.to_numeric(df[c], errors="coerce").fillna(0).astype(int)
+    if "tamam" not in df.columns:
+        df["tamam"] = False
+    df["tamam"] = df["tamam"].fillna(False).astype(bool)
     for c in _COLS:
         if c not in df.columns:
-            df[c] = "" if c in ("ders","konu","birim","kaynak") else 0
-    return df[_COLS]
+            df[c] = "" if c in ("ders","konu","birim","kaynak") else (False if c=="tamam" else 0)
+    return df[_COLS].sort_values(["student_id","ders","order","konu"]).reset_index(drop=True)
 
 def save_curriculum(df: pd.DataFrame):
     df[_COLS].to_csv(CURR, index=False, encoding="utf-8")
@@ -41,14 +45,11 @@ def clear_curriculum(student_id: int, ders: str | None = None):
     df = load_curriculum()
     mask = df["student_id"] == int(student_id)
     if ders:
-        mask = mask & (df["ders"] == ders)
+        mask &= (df["ders"] == ders)
     save_curriculum(df[~mask])
 
 def generate_from_topics(student_id: int, level: str, ders: str | None = None, overwrite: bool = False):
-    """
-    topics.csv'den, seçilen 'level' sütununa göre curriculum oluşturur.
-    level: 'beginner' | 'intermediate' | 'advanced'
-    """
+    """topics.csv'ye göre (Dakika) müfredat üretir."""
     level_col = level_to_col(level)
     topics = load_topics(level_col)
     if ders:
@@ -62,7 +63,8 @@ def generate_from_topics(student_id: int, level: str, ders: str | None = None, o
             "konu": r["topic"],
             "birim": "Dakika",
             "miktar": int(r["target_min"]),
-            "kaynak": ""
+            "kaynak": "",
+            "tamam": False
         })
     cur = load_curriculum()
     if overwrite:
@@ -74,10 +76,7 @@ def generate_from_topics(student_id: int, level: str, ders: str | None = None, o
     save_curriculum(out)
 
 def pick_for_week(student_id: int, week_start, ders: str | None, konu_list: list[dict]) -> list[dict]:
-    """
-    Curriculum satırlarını 'assignments' için satırlara dönüştürür.
-    konu_list: [{'konu': '...', 'miktar': 90, 'birim': 'Dakika', 'kaynak': ''}, ...]
-    """
+    """Müfredat satırlarını assignments satırlarına dönüştürür."""
     rows = []
     for item in konu_list:
         rows.append({
@@ -91,3 +90,67 @@ def pick_for_week(student_id: int, week_start, ders: str | None, konu_list: list
             "durum": False
         })
     return rows
+
+def set_done(student_id: int, ders: str, konu: str, done: bool):
+    df = load_curriculum()
+    mask = (
+        (df["student_id"] == int(student_id)) &
+        (df["ders"] == ders) &
+        (df["konu"] == konu)
+    )
+    if mask.any():
+        df.loc[mask, "tamam"] = bool(done)
+        save_curriculum(df)
+
+def get_with_progress(student_id: int, ders: str | None = None) -> pd.DataFrame:
+    """
+    Dakika bazlı ilerlemeyi müfredata bağlar.
+    Çıktı: ders, order, konu, birim, miktar, kaynak, tamam,
+           done_min, done_effective, remaining_min, pct, auto_done, shown_done
+    - done_effective: tamam=True ise hedefe eşitlenir (özetler %100'e çıkar)
+    """
+    cur = get_curriculum(student_id, ders=ders)
+    if cur.empty:
+        return cur.assign(
+            done_min=0, done_effective=0,
+            remaining_min=cur["miktar"], pct=0,
+            auto_done=False, shown_done=cur["tamam"]
+        )
+
+    cur["miktar"] = pd.to_numeric(cur["miktar"], errors="coerce").fillna(0).astype(int)
+    cur["konu_norm"] = cur["konu"].astype(str).str.strip()
+
+    prog = load_progress()
+    prog = prog[prog["student_id"] == int(student_id)].copy()
+    if not prog.empty:
+        prog["topic_norm"] = prog["topic"].astype(str).str.strip()
+        agg = prog.groupby("topic_norm")["minutes"].sum().reset_index().rename(columns={
+            "topic_norm": "konu_norm",
+            "minutes": "done_min"
+        })
+    else:
+        agg = pd.DataFrame(columns=["konu_norm","done_min"])
+
+    merged = cur.merge(agg, on="konu_norm", how="left").fillna({"done_min": 0})
+    merged["done_min"] = pd.to_numeric(merged["done_min"], errors="coerce").fillna(0).astype(int)
+
+    # otomatik tamam: yapılan dakika hedefi karşılıyorsa
+    is_min = merged["birim"] == "Dakika"
+    merged["auto_done"] = is_min & (merged["done_min"] >= merged["miktar"]) & (merged["miktar"] > 0)
+    merged["shown_done"] = merged["tamam"] | merged["auto_done"]
+
+    # manuel tamam varsa "etkili yapılan"ı hedefe çek
+    merged["done_effective"] = merged["done_min"]
+    need_boost = is_min & merged["tamam"] & (merged["miktar"] > merged["done_min"])
+    merged.loc[need_boost, "done_effective"] = merged.loc[need_boost, "miktar"]
+
+    # yüzde ve kalan
+    merged["pct"] = 0
+    valid = is_min & (merged["miktar"] > 0)
+    merged.loc[valid, "pct"] = (
+        (merged.loc[valid, "done_effective"] / merged.loc[valid, "miktar"]) * 100
+    ).clip(0, 100).round().astype(int)
+
+    merged["remaining_min"] = (merged["miktar"] - merged["done_effective"]).clip(lower=0).astype(int)
+
+    return merged.drop(columns=["konu_norm"]).sort_values(["ders","order","konu"]).reset_index(drop=True)
