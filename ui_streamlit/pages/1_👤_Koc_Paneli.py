@@ -19,6 +19,7 @@ from core.assignments import (
     week_start_of, get_assignments, add_assignments, update_status
 )
 from core.resources import get_resources
+from core.resources import get_resources, load_resources
 
 # --- Stil ---
 st.markdown("""
@@ -216,82 +217,153 @@ if st.button("Hedefleri Ekle", type="primary"):
         )
         st.session_state["flash"] = "Hedef(ler) eklendi."
         st.rerun()
-
 # -----------------------------
-# ÖNERİLEN KAYNAKLAR – hızlı ödevlendirme
+# ÖNERİLENLER – Kaynaklar & Kanallar
 # -----------------------------
-st.subheader("📚 Önerilen Kaynaklar")
+st.subheader("📚 Önerilenler")
 
-areas = ["Genel", "Paragraf", "Dil Bilgisi"]
-levels = ["Başlangıç", "Orta", "İleri"]
+from core.resource_features import get_feature, render_feature_card
+from core.channel_features import list_by_subject as list_channels_by_subject, render_channel_card
 
-colr1, colr2 = st.columns(2)
-with colr1:
-    oner_kat = st.selectbox("Kategori", areas, index=0, key="rec_area")
-with colr2:
-    oner_sev = st.selectbox("Seviye", levels, index=1, key="rec_level")
+tab_res, tab_ch = st.tabs(["Kaynaklar", "Kanallar"])
 
-rec_df = get_resources(subject=ders, area=oner_kat, difficulty=oner_sev)
-if rec_df.empty:
-    st.info("Bu filtreyle eşleşen kaynak bulunamadı.")
-else:
-    names = rec_df["name"].tolist()
-    secilen_idx = st.selectbox("Kaynak seç", options=list(range(len(names))),
-                               format_func=lambda i: names[i], key="rec_pick")
-    secilen = rec_df.iloc[secilen_idx]
+# === Kaynaklar sekmesi (soru/video bankaları) ===
+with tab_res:
+    res_all = load_resources()
 
-    st.markdown(
-        f"<div class='card'><div class='title'>{secilen['name']}</div>"
-        f"<div class='meta'>Tür: <b>{secilen['type']}</b> • Kategori: <b>{secilen['area']}</b> • "
-        f"Seviye: <b>{secilen['difficulty']}</b></div>"
-        f"<div>{secilen['notes']}</div></div>",
-        unsafe_allow_html=True
+    # Kategori listesi: sadece seçili dersin (subject=ders) alanları
+    areas = ["(Tümü)"] + sorted(
+        res_all.loc[res_all["subject"].str.lower() == ders.lower(), "area"]
+               .dropna().unique().tolist()
     )
 
-    # kategoriye göre varsayılan konu önerileri
-    all_topics = topics[topics["subject"] == ders]["topic"].tolist()
-    if oner_kat == "Paragraf":
-        default_topics = [t for t in all_topics if "Paragraf" in t][:1]
-    elif oner_kat == "Dil Bilgisi":
-        grammar_keys = ["Ses Bilgisi","Yazım Kuralları","Noktalama","Sözcük Yapısı",
-                        "İsim Soylu","Fiiller","Cümlenin Ögeleri","Cümle Çeşitleri","Anlatım Bozukluğu"]
-        default_topics = [t for t in all_topics if any(k in t for k in grammar_keys)]
+    # Kullanıcı kategori seçince, o kategoriye göre seviyeleri (difficulty) da dinamik çıkar
+    colr1, colr2 = st.columns(2)
+    with colr1:
+        oner_kat = st.selectbox("Kategori", areas, index=0, key="rec_area")
+    # Seviye listesi dinamik:
+    if oner_kat == "(Tümü)":
+        _lev_src = res_all[res_all["subject"].str.lower() == ders.lower()]
     else:
-        default_topics = all_topics
+        _lev_src = res_all[
+            (res_all["subject"].str.lower() == ders.lower()) &
+            (res_all["area"].str.lower() == oner_kat.lower())
+        ]
+    dyn_levels = sorted(_lev_src["difficulty"].dropna().unique().tolist())
+    # 'Orta' varsa onu varsayılan yap
+    default_idx = dyn_levels.index("Orta") if "Orta" in dyn_levels else 0
+    with colr2:
+        oner_sev = st.selectbox("Seviye", dyn_levels or ["(yok)"], index=default_idx if dyn_levels else 0, key="rec_level")
 
-    hedef_konular = st.multiselect(
-        "Bu kaynaktan ödevlenecek konular",
-        all_topics,
-        default=default_topics[:3],
-        key="rec_topics"
+    # Filtrele (kategori "(Tümü)" ise area=None gönder)
+    rec_df = get_resources(
+        subject=ders,
+        area=None if oner_kat == "(Tümü)" else oner_kat,
+        difficulty=oner_sev if dyn_levels else None
     )
 
-    if secilen["type"] == "Soru":
-        rec_miktar = st.number_input("Soru sayısı", min_value=5, max_value=500, value=40, step=5, key="rec_qty")
-        rec_birim = "Soru"
+    if rec_df.empty:
+        st.info("Bu filtreyle eşleşen kaynak bulunamadı.")
     else:
-        rec_miktar = st.number_input("Video adedi", min_value=1, max_value=50, value=1, step=1, key="rec_qty")
-        rec_birim = "Video"
+        names = rec_df["name"].tolist()
+        secilen_idx = st.selectbox("Kaynak", options=list(range(len(names))),
+                                   format_func=lambda i: names[i], key="rec_pick")
+        secilen = rec_df.iloc[secilen_idx]
 
-    if st.button("➕ Bu kaynaktan hedef oluştur", type="primary", key="rec_add_btn"):
-        if not hedef_konular:
-            st.warning("En az bir konu seç.")
+        feat = get_feature(subject=ders, name=str(secilen["name"]))
+        if feat is not None:
+            st.markdown(render_feature_card(feat), unsafe_allow_html=True)
         else:
-            add_assignments(
-                student_id=student_id,
-                week_start=hafta_baslangic,
-                ders=ders,
-                konular=hedef_konular,
-                birim=rec_birim,
-                miktar=int(rec_miktar),
-                kaynak=str(secilen["name"])
+            st.markdown(
+                f"<div class='card'><div class='title'>{secilen['name']}</div>"
+                f"<div class='meta'>Tür: <b>{secilen['type']}</b> • Kategori: <b>{secilen['area']}</b> • "
+                f"Seviye: <b>{secilen['difficulty']}</b></div>"
+                f"<div>{secilen['notes']}</div></div>", unsafe_allow_html=True
             )
-            st.success("Hedef(ler) eklendi.")
-            st.rerun()
 
-with st.expander("ℹ️ Notlar"):
-    st.write("""
-- Görevler **ders → tür (🎬 Video → ⏱️ Dakika → 📝 Soru)** şeklinde gruplanır.
-- Dakika miktarları saat/dakika biçiminde gösterilir (örn. 150 dk → 2s 30dk).
-- Önerilen Kaynaklar bölümünden kategori/seviye filtreleriyle **tek tıkla** hedef atayabilirsin.
-""")
+        all_topics = topics[topics["subject"] == ders]["topic"].tolist()
+        hedef_konular = st.multiselect(
+            "Bu kaynaktan ödevlenecek konular",
+            all_topics,
+            default=all_topics[:3],  # sade varsayılan
+            key="rec_topics"
+        )
+
+        if secilen["type"] == "Soru":
+            rec_miktar = st.number_input("Soru sayısı", min_value=5, max_value=500, value=40, step=5, key="rec_qty")
+            rec_birim = "Soru"
+        else:
+            rec_miktar = st.number_input("Video adedi", min_value=1, max_value=50, value=1, step=1, key="rec_qty")
+            rec_birim = "Video"
+
+        if st.button("➕ Bu kaynaktan hedef oluştur", type="primary", key="rec_add_btn"):
+            if not hedef_konular:
+                st.warning("En az bir konu seç.")
+            else:
+                add_assignments(
+                    student_id=student_id,
+                    week_start=hafta_baslangic,
+                    ders=ders,
+                    konular=hedef_konular,
+                    birim=rec_birim,
+                    miktar=int(rec_miktar),
+                    kaynak=str(secilen["name"])
+                )
+                st.success("Hedef(ler) eklendi.")
+                st.rerun()
+
+from core.channel_features import load_channels
+
+# === Kanallar sekmesi (YouTube vb.) ===
+with tab_ch:
+    # Ders seçimi: varsayılan Türkçe; Paragraf/Dil Bilgisi de ayrı kategori gibi
+    # ESKİ
+    # ders_kanal = st.selectbox("Kanal kategorisi", ["Türkçe","Paragraf","Dil Bilgisi"], index=0)
+
+    # YENİ
+    ch_all = load_channels()
+    ders_kanal_list = sorted(ch_all["subject"].dropna().unique().tolist())
+    default_idx = ders_kanal_list.index(ders) if ders in ders_kanal_list else 0
+    ders_kanal = st.selectbox("Kanal kategorisi", ders_kanal_list, index=default_idx)
+
+    channels_df = list_channels_by_subject(ders_kanal)
+    if channels_df.empty:
+        st.info("Bu kategori için kanal verisi yok.")
+    else:
+        ch_names = channels_df["name"].tolist()
+        ch_idx = st.selectbox("Kanal", options=list(range(len(ch_names))),
+                              format_func=lambda i: ch_names[i], key="ch_pick")
+        ch = channels_df.iloc[ch_idx]
+
+        st.markdown(render_channel_card(ch), unsafe_allow_html=True)
+
+        # konu önerileri (ders seçimi Türkçe olsa da, Paragraf/Dil Bilgisi anahtarlarıyla filtre)
+        all_topics = topics[topics["subject"] == ders]["topic"].tolist()
+        if ders_kanal == "Paragraf":
+            default_topics = [t for t in all_topics if "Paragraf" in t][:1]
+        elif ders_kanal == "Dil Bilgisi":
+            grammar_keys = ["Ses Bilgisi","Yazım Kuralları","Noktalama","Sözcük Yapısı",
+                            "İsim Soylu","Fiiller","Cümlenin Ögeleri","Cümle Çeşitleri","Anlatım Bozukluğu"]
+            default_topics = [t for t in all_topics if any(k in t for k in grammar_keys)]
+        else:
+            default_topics = all_topics
+
+        hedef_konular = st.multiselect("Bu kanaldan ödevlenecek konular",
+                                       all_topics, default=default_topics[:3], key="ch_topics")
+        vid_count = st.number_input("Video adedi", min_value=1, max_value=50, value=3, step=1, key="ch_qty")
+
+        if st.button("➕ Bu kanaldan hedef oluştur", type="primary", key="ch_add_btn"):
+            if not hedef_konular:
+                st.warning("En az bir konu seç.")
+            else:
+                add_assignments(
+                    student_id=student_id,
+                    week_start=hafta_baslangic,
+                    ders=ders,  # görevler yine seçili derse (örn. Türkçe) yazılıyor
+                    konular=hedef_konular,
+                    birim="Video",
+                    miktar=int(vid_count),
+                    kaynak=str(ch["name"])
+                )
+                st.success("Hedef(ler) eklendi.")
+                st.rerun()

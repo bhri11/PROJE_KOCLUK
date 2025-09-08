@@ -4,7 +4,7 @@ student_id,ders,order,konu,birim,miktar,kaynak,tamam
 2,Türkçe,3,"Paragrafta Anlam, Anlatım Biçimleri",Dakika,630,,True
 2,Türkçe,4,Ses Bilgisi,Dakika,270,,True
 2,Türkçe,5,Yazım Kuralları,Dakika,315,,True
-2,Türkçe,6,Noktalama İşaretleri,Dakika,240,,False
+2,Türkçe,6,Noktalama İşaretleri,Dakika,240,,True
 2,Türkçe,7,Sözcük Yapısı ve Ekler,Dakika,390,,False
 2,Türkçe,8,"İsim Soylu Sözcükler (İsim, Sıfat, Zamir, Zarf, Edat, Bağlaç)",Dakika,990,,False
 2,Türkçe,9,"Fiiller, Ek Fiil, Fiilimsiler, Fiilde Yapı",Dakika,660,,False
@@ -23,3 +23,24 @@ student_id,ders,order,konu,birim,miktar,kaynak,tamam
 3,Türkçe,10,Cümlenin Ögeleri,Dakika,90,,False
 3,Türkçe,11,Cümle Çeşitleri,Dakika,90,,False
 3,Türkçe,12,Anlatım Bozukluğu,Dakika,120,,False
+2,Matematik,1,Temel Kavramlar (Sayılar),Dakika,240,,False
+2,Matematik,2,Sayı Basamakları ve Çözümleme,Dakika,135,,False
+2,Matematik,3,Bölme ve Bölünebilme,Dakika,150,,False
+2,Matematik,4,"Asal Sayılar, Asal Çarpanlara Ayırma",Dakika,105,,False
+2,Matematik,5,OBEB – OKEK,Dakika,180,,False
+2,Matematik,6,Rasyonel Sayılar - Ondalık Sayılar,Dakika,90,,False
+2,Matematik,7,Basit Eşitsizlikler,Dakika,75,,False
+2,Matematik,8,Mutlak Değer,Dakika,210,,False
+2,Matematik,9,Üslü Sayılar,Dakika,135,,False
+2,Matematik,10,Köklü Sayılar,Dakika,120,,False
+2,Matematik,11,Çarpanlara Ayırma,Dakika,120,,False
+2,Matematik,12,Oran-Orantı,Dakika,150,,False
+2,Matematik,13,Denklem Çözme (1. Dereceden Denklemler),Dakika,105,,False
+2,Matematik,14,Problemler,Dakika,720,,False
+2,Matematik,15,Mantık,Dakika,75,,False
+2,Matematik,16,Kümeler ve Kartezyen Çarpımı,Dakika,60,,False
+2,Matematik,17,Fonksiyonlar ve Grafikleri,Dakika,255,,False
+2,Matematik,18,Polinomlar,Dakika,180,,False
+2,Matematik,19,"Permütasyon, Kombinasyon",Dakika,180,,False
+2,Matematik,20,Binom,Dakika,45,,False
+2,Matematik,21,"Olasılık, İstatistik",Dakika,180,,False
