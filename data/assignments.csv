@@ -26,4 +26,4 @@ week_start,student_id,ders,konu,birim,miktar,kaynak,durum
 2025-09-08,4,Türkçe,Yazım Kuralları,Dakika,90,,True
 2025-09-08,4,Türkçe,"Cümle Bilgisi, Yorumu ve Cümlede Kavramlar (Cümlede Anlam)",Dakika,120,,True
 2025-09-08,2,Matematik,Polinomlar,Dakika,90,,False
-2025-09-08,2,Matematik,OBEB – OKEK,Dakika,180,,False
+2025-09-08,2,Matematik,OBEB – OKEK,Dakika,180,,True

@@ -32,3 +32,110 @@ Matematik;18;Polinomlar;405;300;180
 Matematik;19;Permütasyon, Kombinasyon;450;300;180
 Matematik;20;Binom;135;75;45
 Matematik;21;Olasılık, İstatistik;480;330;180
+Geometri;1;Doğruda Açılar;180;120;75
+Geometri;2;Üçgende Açılar;270;195;135
+Geometri;3;Dik Üçgen, Özel Üçgenler ve Dik Üçgende Trigonometrik Bağlantılar;450;315;240
+Geometri;4;İkizkenar Üçgen;360;240;165
+Geometri;5;Eşkenar Üçgen;300;225;135
+Geometri;6;Üçgende Açıortay;360;210;135
+Geometri;7;Üçgende Kenarortay;330;210;135
+Geometri;8;Üçgende Eşlik ve Benzerlik;570;360;255
+Geometri;9;Üçgende Alan;510;300;195
+Geometri;10;Üçgende Merkezler;300;210;120
+Geometri;11;Üçgende Açı Kenar Bağıntıları;390;270;180
+Geometri;12;Çokgenler;600;435;300
+Geometri;13;Dörtgenler;330;240;150
+Geometri;14;Paralelkenar;480;345;255
+Geometri;15;Eşkenar Dörtgen;300;240;180
+Geometri;16;Deltoid;270;195;120
+Geometri;17;Dikdörtgen;420;285;180
+Geometri;18;Kare;390;270;180
+Geometri;19;Yamuk;510;360;270
+Geometri;20;Çemberde Açılar;540;390;300
+Geometri;21;Çemberde Uzunluk;495;360;255
+Geometri;22;Dairenin Çevresi ve Alanı;660;420;270
+Geometri;23;Noktanın Analitik İncelenmesi;300;195;120
+Geometri;24;Doğrunun Analitik İncelenmesi;900;600;420
+Geometri;25;Çemberin Analitik İncelenmesi (Çember Analitiği);690;480;300
+Geometri;26;Dönüşüm Geometrisi;450;315;240
+Geometri;27;Katı Cisimler;1080;630;480
+Fizik;1;Fizik Bilimine Giriş;180;120;75
+Fizik;2;Madde ve Özellikleri;450;345;210
+Fizik;3;Kuvvet ve Hareket;300;210;135
+Fizik;4;İş, Güç ve Enerji;360;255;180
+Fizik;5;Isı, Sıcaklık ve Genleşme;450;315;195
+Fizik;6;Basınç;450;315;195
+Fizik;7;Kaldırma Kuvveti;720;480;330
+Fizik;8;Elektrostatik;300;150;90
+Fizik;9;Elektrik Akımı ve Devreleri;510;315;210
+Fizik;10;Mıknatıslar ve Manyetizma;210;135;75
+Kimya;1;Kimya Bilimine Giriş;210;105;60
+Kimya;2;Atom Bilgisi ve Periyodik Sistem;360;255;150
+Kimya;3;Kimyasal Türler Arası Etkileşimler;450;240;165
+Kimya;4;Maddenin Fiziksel Halleri ve Hal Değişimi;390;240;150
+Kimya;5;Mol Kavramı, Temel Kimya Yasaları ve Kimyasal Hesaplamalar–Tepkimeler;930;480;300
+Kimya;6;Karışımlar;300;180;105
+Biyoloji;1;Bilimsel Bilginin Doğası, Biyoloji Bilimi ve Canlıların Ortak Özellikleri;135;75;45
+Biyoloji;2;Canlıların Temel Bileşenleri;540;300;210
+Biyoloji;3;Hücrenin Yapısı ve İşlevleri;480;255;165
+Biyoloji;4;Hücre Bölünmesi ve Üreme Çeşitleri;360;240;150
+Biyoloji;5;Kalıtım;420;240;180
+Biyoloji;6;Dünyamız – Ekosistem Ekolojisi;240;150;90
+Tarih;1;Tarih Bilimine Giriş ve Uygarlık Tarihi;90;45;30
+Tarih;2;Eski Türk Tarihi;150;120;90
+Tarih;3;İslam Tarihi;150;90;60
+Tarih;4;Türk İslam Devletleri;120;150;60
+Tarih;5;Türkiye Tarihi;150;120;90
+Tarih;6;Beylikten Devlete;150;90;60
+Tarih;7;Dünya Gücü Osmanlı Devleti;210;180;90
+Tarih;8;Osmanlı Kültür ve Medeniyeti;240;180;120
+Tarih;9;Osmanlı’da Arayış Yılları;150;120;60
+Tarih;10;18.yy’da Değişim ve Diplomasi;135;120;75
+Tarih;11;Yeni ve Yakın Çağ Avrupası;90;60;45
+Tarih;12;En Uzun Yüzyıl;210;150;120
+Tarih;13;I. Dünya Savaşı;150;90;60
+Tarih;14;Milli Mücadeleye Hazırlık Dönemi;150;120;90
+Tarih;15;Kurtuluş Savaşı ve 1. TBMM;210;120;60
+Tarih;16;Türk İnkılabı;150;120;60
+Tarih;17;Atatürkçülük ve Atatürk İlkeleri;120;90;60
+Coğrafya;1;Çevre ve İnsan;60;30;15
+Coğrafya;2;İnsan ve Doğa İlişkisi;45;30;15
+Coğrafya;3;Coğrafyanın Konusu ve Bölümleri;60;45;30
+Coğrafya;4;Dünyanın Günlük ve Yıllık Hareketleri;270;180;105
+Coğrafya;5;Türkiye’nin Konumu;60;30;15
+Coğrafya;6;Harita ve Çeşitleri;120;90;60
+Coğrafya;7;Ölçek ve Hesaplamalar;150;135;105
+Coğrafya;8;İzohipsler;60;30;15
+Coğrafya;9;Atmosfer ve Sıcaklık;210;150;90
+Coğrafya;10;Basınç ve Rüzgarlar;150;120;90
+Coğrafya;11;Nem Yağış ve Buharlaşma;180;150;120
+Coğrafya;12;Türkiye’nin İklimi ve Bitki Örtüsü;120;90;60
+Coğrafya;13;Büyük İklim Tipleri;150;150;60
+Coğrafya;14;Türkiye’de İklim;60;30;15
+Coğrafya;15;İç Kuvvetler ve Kayaçlar;210;180;120
+Coğrafya;16;Dış Kuvvetler;210;150;90
+Coğrafya;17;Dünya’nın Yer Şekilleri;90;60;45
+Coğrafya;18;Türkiye’nin Yer Şekilleri;120;90;60
+Coğrafya;19;Türkiye’de Toprak ve Tipleri;150;120;90
+Coğrafya;20;Bitki;60;30;15
+Coğrafya;21;Yeryüzünde Su Varlığı;120;90;60
+Coğrafya;22;Yeryüzünde Bitki Türlerinin Sınıflandırılması;120;90;45
+Coğrafya;23;Nüfus ve Yerleşme;90;75;60
+Coğrafya;24;Küresel Ortam: Bölgeler;90;60;30
+Coğrafya;25;Küresel Çevre Sorunları;90;30;15
+Felsefe;1;Felsefenin Alanı;120;90;45
+Felsefe;2;Bilgi Felsefesi;180;120;75
+Felsefe;3;Bilim Felsefesi;150;120;60
+Felsefe;4;Varlık Felsefesi;180;120;105
+Felsefe;5;Ahlak Felsefesi;150;120;75
+Felsefe;6;Siyaset Felsefesi;150;120;60
+Felsefe;7;Din Felsefesi;120;75;45
+Felsefe;8;Sanat Felsefesi;210;45;30
+Din Kültürü ve Ahlak Bilgisi;1;Bilgi ve İnanç;105;60;45
+Din Kültürü ve Ahlak Bilgisi;2;İslam ve İbadet;180;120;75
+Din Kültürü ve Ahlak Bilgisi;3;Ahlak ve Değerler;150;120;60
+Din Kültürü ve Ahlak Bilgisi;4;Allah ve İnsan İlişkisi;180;120;90
+Din Kültürü ve Ahlak Bilgisi;5;Hz. Muhammed (S.A.V);240;210;120
+Din Kültürü ve Ahlak Bilgisi;6;Vahiy ve Akıl;270;240;150
+Din Kültürü ve Ahlak Bilgisi;7;İslam Düşüncesinde Yorumlar, Mezhepler;180;120;75
+Din Kültürü ve Ahlak Bilgisi;8;Din, Kültür ve Medeniyet;150;120;60

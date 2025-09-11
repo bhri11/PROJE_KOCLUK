@@ -1,0 +1,41 @@
+ts,student_id,subject,topic,minutes
+,2,Biyoloji,"Bilimsel Bilginin Doğası, Biyoloji Bilimi ve Canlıların Ortak Özellikleri",0
+,2,Biyoloji,Canlıların Temel Bileşenleri,0
+,2,Biyoloji,Hücrenin Yapısı ve İşlevleri,0
+,2,Biyoloji,Hücre Bölünmesi ve Üreme Çeşitleri,0
+,2,Biyoloji,Kalıtım,0
+,2,Biyoloji,Dünyamız – Ekosistem Ekolojisi,0
+,2,Geometri,Doğruda Açılar,0
+,2,Geometri,Üçgende Açılar,0
+,2,Geometri,"Dik Üçgen, Özel Üçgenler ve Dik Üçgende Trigonometrik Bağlantılar",0
+,2,Geometri,İkizkenar Üçgen,0
+,2,Geometri,Eşkenar Üçgen,0
+,2,Geometri,Üçgende Açıortay,0
+,2,Geometri,Üçgende Kenarortay,0
+,2,Geometri,Üçgende Eşlik ve Benzerlik,0
+,2,Geometri,Üçgende Alan,0
+,2,Geometri,Üçgende Merkezler,0
+,2,Geometri,Üçgende Açı Kenar Bağıntıları,0
+,2,Geometri,Çokgenler,0
+,2,Geometri,Dörtgenler,0
+,2,Geometri,Paralelkenar,0
+,2,Geometri,Eşkenar Dörtgen,0
+,2,Geometri,Deltoid,0
+,2,Geometri,Dikdörtgen,0
+,2,Geometri,Kare,0
+,2,Geometri,Yamuk,0
+,2,Geometri,Çemberde Açılar,0
+,2,Geometri,Çemberde Uzunluk,0
+,2,Geometri,Dairenin Çevresi ve Alanı,0
+,2,Geometri,Noktanın Analitik İncelenmesi,0
+,2,Geometri,Doğrunun Analitik İncelenmesi,0
+,2,Geometri,Çemberin Analitik İncelenmesi (Çember Analitiği),0
+,2,Geometri,Dönüşüm Geometrisi,0
+,2,Geometri,Katı Cisimler,0
+2025-09-10T18:33:28,2,Matematik,_,45
+2025-09-10T19:36:21,2,Biyoloji,_,30
+2025-09-10T19:36:35,2,Biyoloji,b,30
+2025-09-10T19:36:42,2,Biyoloji,e,30
+2025-09-10T19:36:44,2,Biyoloji,g,180
+2025-09-10T19:36:50,2,Biyoloji,i,180
+2025-09-10T19:36:51,2,Biyoloji,m,180

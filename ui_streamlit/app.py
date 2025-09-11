@@ -10,6 +10,7 @@ st.page_link("pages/2_🧑‍🎓_Ogrenci_Yonetimi.py", label="Öğrenci Yöneti
 st.page_link("pages/3_📚_Kaynak_Yonetimi.py", label="Kaynak Yönetimi", icon="📚")
 st.page_link("pages/4_🧭_Mufredat_Plani.py", label="Müfredat Planı", icon="🧭")
 st.page_link("pages/5_📈_Mufredat_Izleme.py", label="Müfredat İzleme", icon="📈")
+#st.page_link("pages/6_🔎_Kaynak_Ozellikleri.py", label="Kaynak Ozellikleri", icon="🔎")
 
 with st.expander("📌 İpucu"):
     st.markdown("""

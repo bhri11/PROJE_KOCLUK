@@ -228,40 +228,63 @@ from core.channel_features import list_by_subject as list_channels_by_subject, r
 tab_res, tab_ch = st.tabs(["Kaynaklar", "Kanallar"])
 
 # === Kaynaklar sekmesi (soru/video bankaları) ===
+# === Kaynaklar sekmesi (soru/video bankaları) ===
 with tab_res:
     res_all = load_resources()
 
-    # Kategori listesi: sadece seçili dersin (subject=ders) alanları
-    areas = ["(Tümü)"] + sorted(
-        res_all.loc[res_all["subject"].str.lower() == ders.lower(), "area"]
-               .dropna().unique().tolist()
-    )
+    # 1) DERS (SUBJECT) SEÇİMİ — CSV'den dinamik, varsayılan yukarıdaki 'ders'
+    dersler_res = sorted(res_all["subject"].dropna().unique().tolist())
+    def_idx = dersler_res.index(ders) if ders in dersler_res else 0
+    ders_rec = st.selectbox("Ders", dersler_res, index=def_idx, key="rec_subject")
 
-    # Kullanıcı kategori seçince, o kategoriye göre seviyeleri (difficulty) da dinamik çıkar
+    # 2) KATEGORİ (AREA) — yalnızca seçilen derse göre
+    areas = ["(Tümü)"] + sorted(
+        res_all.loc[res_all["subject"].str.lower() == ders_rec.lower(), "area"]
+              .dropna().unique().tolist()
+    )
     colr1, colr2 = st.columns(2)
     with colr1:
         oner_kat = st.selectbox("Kategori", areas, index=0, key="rec_area")
-    # Seviye listesi dinamik:
+
+    # 3) SEVİYE (DIFFICULTY) — dinamik + eşanlamlılar
+    def norm_level(x: str) -> str:
+        x = (x or "").strip().lower()
+        return {
+            "kolay": "Başlangıç", "başlangıç": "Başlangıç", "easy": "Başlangıç",
+            "orta": "Orta", "medium": "Orta",
+            "zor": "İleri", "ileri": "İleri", "hard": "İleri"
+        }.get(x, x.title() if x else "")
+
     if oner_kat == "(Tümü)":
-        _lev_src = res_all[res_all["subject"].str.lower() == ders.lower()]
+        lev_src = res_all[res_all["subject"].str.lower() == ders_rec.lower()]
     else:
-        _lev_src = res_all[
-            (res_all["subject"].str.lower() == ders.lower()) &
+        lev_src = res_all[
+            (res_all["subject"].str.lower() == ders_rec.lower()) &
             (res_all["area"].str.lower() == oner_kat.lower())
         ]
-    dyn_levels = sorted(_lev_src["difficulty"].dropna().unique().tolist())
-    # 'Orta' varsa onu varsayılan yap
-    default_idx = dyn_levels.index("Orta") if "Orta" in dyn_levels else 0
-    with colr2:
-        oner_sev = st.selectbox("Seviye", dyn_levels or ["(yok)"], index=default_idx if dyn_levels else 0, key="rec_level")
 
-    # Filtrele (kategori "(Tümü)" ise area=None gönder)
+    levs = sorted(
+        {norm_level(v) for v in lev_src["difficulty"].dropna().tolist() if norm_level(v)},
+        key=lambda s: ["Başlangıç","Orta","İleri"].index(s) if s in ["Başlangıç","Orta","İleri"] else 99
+    )
+    # Varsayılanı 'Orta' yap, yoksa ilkini
+    with colr2:
+        oner_sev = st.selectbox(
+            "Seviye",
+            levs or ["(Tümü)"],
+            index=(levs.index("Orta") if ("Orta" in levs) else 0),
+            key="rec_level"
+        )
+
+    # 4) FİLTRELEME
+    diff_filter = None if (not levs or oner_sev == "(Tümü)") else ("İleri" if oner_sev == "Zor" else oner_sev)
     rec_df = get_resources(
-        subject=ders,
+        subject=ders_rec,
         area=None if oner_kat == "(Tümü)" else oner_kat,
-        difficulty=oner_sev if dyn_levels else None
+        difficulty=diff_filter
     )
 
+    # 5) SONUÇ
     if rec_df.empty:
         st.info("Bu filtreyle eşleşen kaynak bulunamadı.")
     else:
@@ -270,7 +293,7 @@ with tab_res:
                                    format_func=lambda i: names[i], key="rec_pick")
         secilen = rec_df.iloc[secilen_idx]
 
-        feat = get_feature(subject=ders, name=str(secilen["name"]))
+        feat = get_feature(subject=ders_rec, name=str(secilen["name"]))
         if feat is not None:
             st.markdown(render_feature_card(feat), unsafe_allow_html=True)
         else:
@@ -281,19 +304,18 @@ with tab_res:
                 f"<div>{secilen['notes']}</div></div>", unsafe_allow_html=True
             )
 
-        all_topics = topics[topics["subject"] == ders]["topic"].tolist()
+        # Konu seçimi (seçilen dersteki konular)
+        all_topics = topics[topics["subject"] == ders_rec]["topic"].tolist()
         hedef_konular = st.multiselect(
             "Bu kaynaktan ödevlenecek konular",
-            all_topics,
-            default=all_topics[:3],  # sade varsayılan
-            key="rec_topics"
+            all_topics, default=all_topics[:3], key="rec_topics"
         )
 
         if secilen["type"] == "Soru":
             rec_miktar = st.number_input("Soru sayısı", min_value=5, max_value=500, value=40, step=5, key="rec_qty")
             rec_birim = "Soru"
         else:
-            rec_miktar = st.number_input("Video adedi", min_value=1, max_value=50, value=1, step=1, key="rec_qty")
+            rec_miktar = st.number_input("Video adedi", min_value=1, max_value=50, value=3, step=1, key="rec_qty")
             rec_birim = "Video"
 
         if st.button("➕ Bu kaynaktan hedef oluştur", type="primary", key="rec_add_btn"):
@@ -303,7 +325,7 @@ with tab_res:
                 add_assignments(
                     student_id=student_id,
                     week_start=hafta_baslangic,
-                    ders=ders,
+                    ders=ders_rec,
                     konular=hedef_konular,
                     birim=rec_birim,
                     miktar=int(rec_miktar),
