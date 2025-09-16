@@ -1,41 +1,28 @@
-ts,student_id,subject,topic,minutes
-,2,Biyoloji,"Bilimsel Bilginin Doğası, Biyoloji Bilimi ve Canlıların Ortak Özellikleri",0
-,2,Biyoloji,Canlıların Temel Bileşenleri,0
-,2,Biyoloji,Hücrenin Yapısı ve İşlevleri,0
-,2,Biyoloji,Hücre Bölünmesi ve Üreme Çeşitleri,0
-,2,Biyoloji,Kalıtım,0
-,2,Biyoloji,Dünyamız – Ekosistem Ekolojisi,0
-,2,Geometri,Doğruda Açılar,0
-,2,Geometri,Üçgende Açılar,0
-,2,Geometri,"Dik Üçgen, Özel Üçgenler ve Dik Üçgende Trigonometrik Bağlantılar",0
-,2,Geometri,İkizkenar Üçgen,0
-,2,Geometri,Eşkenar Üçgen,0
-,2,Geometri,Üçgende Açıortay,0
-,2,Geometri,Üçgende Kenarortay,0
-,2,Geometri,Üçgende Eşlik ve Benzerlik,0
-,2,Geometri,Üçgende Alan,0
-,2,Geometri,Üçgende Merkezler,0
-,2,Geometri,Üçgende Açı Kenar Bağıntıları,0
-,2,Geometri,Çokgenler,0
-,2,Geometri,Dörtgenler,0
-,2,Geometri,Paralelkenar,0
-,2,Geometri,Eşkenar Dörtgen,0
-,2,Geometri,Deltoid,0
-,2,Geometri,Dikdörtgen,0
-,2,Geometri,Kare,0
-,2,Geometri,Yamuk,0
-,2,Geometri,Çemberde Açılar,0
-,2,Geometri,Çemberde Uzunluk,0
-,2,Geometri,Dairenin Çevresi ve Alanı,0
-,2,Geometri,Noktanın Analitik İncelenmesi,0
-,2,Geometri,Doğrunun Analitik İncelenmesi,0
-,2,Geometri,Çemberin Analitik İncelenmesi (Çember Analitiği),0
-,2,Geometri,Dönüşüm Geometrisi,0
-,2,Geometri,Katı Cisimler,0
-2025-09-10T18:33:28,2,Matematik,_,45
-2025-09-10T19:36:21,2,Biyoloji,_,30
-2025-09-10T19:36:35,2,Biyoloji,b,30
-2025-09-10T19:36:42,2,Biyoloji,e,30
-2025-09-10T19:36:44,2,Biyoloji,g,180
-2025-09-10T19:36:50,2,Biyoloji,i,180
-2025-09-10T19:36:51,2,Biyoloji,m,180
+log_id,ts,student_id,subject,topic,minutes
+5be56daf374b46de801a25b3ee257d36,,2,Geometri,Doğruda Açılar,0
+bb7d3839bf404bf0afc9bfd214c3f76b,,2,Geometri,Üçgende Açılar,0
+c7d0ce118ecb46428c406b7780ba7b13,,2,Geometri,"Dik Üçgen, Özel Üçgenler ve Dik Üçgende Trigonometrik Bağlantılar",0
+734fe8f48280485585b210e58db5b39d,,2,Geometri,İkizkenar Üçgen,0
+bab7084b4fd54db28765d9057c497b42,,2,Geometri,Eşkenar Üçgen,0
+ee3d53196c2f4787a077a48a877775f4,,2,Geometri,Üçgende Açıortay,0
+6bcc731236bb432788065328fccec511,,2,Geometri,Üçgende Kenarortay,0
+f96ea0f008764cca9588e11902ade2d3,,2,Geometri,Üçgende Eşlik ve Benzerlik,0
+ef576f4c68db45739e9caa2d7870f5d3,,2,Geometri,Üçgende Alan,0
+5208b9d032c44d04b5cf46707b643828,,2,Geometri,Üçgende Merkezler,0
+0d86c68759fa4e10a6ef66feaf049210,,2,Geometri,Üçgende Açı Kenar Bağıntıları,0
+df4822b958904eb0b5d2cc28baa9c5f8,,2,Geometri,Çokgenler,0
+5fcf6bff741f4b5393791343c7dec436,,2,Geometri,Dörtgenler,0
+0d036bf82696415eb2aa90e9a6d8d8ea,,2,Geometri,Paralelkenar,0
+c7dfd2a21d0b4627a2f9e655db313d38,,2,Geometri,Eşkenar Dörtgen,0
+5ffa97cc87514a8db4e2eb3c1e384c09,,2,Geometri,Deltoid,0
+4c38b59a4832426391398fa0afe7f453,,2,Geometri,Dikdörtgen,0
+30fe6fe805704d53963d09f6abd91e3f,,2,Geometri,Kare,0
+9d2bd379854443e4a07ff10c71194bdf,,2,Geometri,Yamuk,0
+380e177d40d640e0b3896eea777b1e52,,2,Geometri,Çemberde Açılar,0
+32f074540c7f482188d200d0659070c6,,2,Geometri,Çemberde Uzunluk,0
+d8059c9583b14ae593ce53038d9c7a43,,2,Geometri,Dairenin Çevresi ve Alanı,0
+2df78e5a06e8426db81d1ef4c63aae9d,,2,Geometri,Noktanın Analitik İncelenmesi,0
+fc108bdc036247edad1dc63853522ac3,,2,Geometri,Doğrunun Analitik İncelenmesi,0
+e1d353035ab24de9bdb001735358c38e,,2,Geometri,Çemberin Analitik İncelenmesi (Çember Analitiği),0
+87bf91c6ec81492fab92ed019bd7e39e,,2,Geometri,Dönüşüm Geometrisi,0
+546e495908954276944bc77d8c539615,,2,Geometri,Katı Cisimler,0

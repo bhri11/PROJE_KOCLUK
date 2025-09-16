@@ -44,6 +44,10 @@ def load_topics(level_col: str) -> pd.DataFrame:
         # Geriye dönük: , + düzgün tırnaklı CSV
         df = pd.read_csv(p, encoding="utf-8")
     df = df.sort_values(["subject", "order"]).reset_index(drop=True)
+    df["topic"] = df["topic"].astype(str).str.strip()
+    df = df[df["topic"] != ""].copy()
+    df = df[~df["topic"].isin(["-", "—", "–", "_"])].copy()
+
     df["target_min"] = df[level_col].astype(int)
     return df
 

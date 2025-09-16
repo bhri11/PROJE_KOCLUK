@@ -100,15 +100,34 @@ student_id,subject,topic,target_min
 2,Matematik,m,180
 2,Matematik,i,180
 2,Matematik,n,180
-2,Biyoloji,b,180
-2,Biyoloji,e,180
-2,Biyoloji,g,180
-2,Biyoloji,i,180
-2,Biyoloji,n,180
-2,Biyoloji,n,180
-2,Biyoloji,e,180
-2,Biyoloji,r,180
-2,Biyoloji,_,180
-2,Biyoloji,m,180
-2,Biyoloji,i,180
-2,Biyoloji,n,180
+2,Biyoloji,"Bilimsel Bilginin Doğası, Biyoloji Bilimi ve Canlıların Ortak Özellikleri",75
+2,Biyoloji,Canlıların Temel Bileşenleri,300
+2,Biyoloji,Hücrenin Yapısı ve İşlevleri,255
+2,Biyoloji,Hücre Bölünmesi ve Üreme Çeşitleri,240
+2,Biyoloji,Kalıtım,240
+2,Biyoloji,Dünyamız – Ekosistem Ekolojisi,150
+2,Coğrafya,Çevre ve İnsan,30
+2,Coğrafya,İnsan ve Doğa İlişkisi,30
+2,Coğrafya,Coğrafyanın Konusu ve Bölümleri,45
+2,Coğrafya,Dünyanın Günlük ve Yıllık Hareketleri,180
+2,Coğrafya,Türkiye’nin Konumu,30
+2,Coğrafya,Harita ve Çeşitleri,90
+2,Coğrafya,Ölçek ve Hesaplamalar,135
+2,Coğrafya,İzohipsler,30
+2,Coğrafya,Atmosfer ve Sıcaklık,150
+2,Coğrafya,Basınç ve Rüzgarlar,120
+2,Coğrafya,Nem Yağış ve Buharlaşma,150
+2,Coğrafya,Türkiye’nin İklimi ve Bitki Örtüsü,90
+2,Coğrafya,Büyük İklim Tipleri,150
+2,Coğrafya,Türkiye’de İklim,30
+2,Coğrafya,İç Kuvvetler ve Kayaçlar,180
+2,Coğrafya,Dış Kuvvetler,150
+2,Coğrafya,Dünya’nın Yer Şekilleri,60
+2,Coğrafya,Türkiye’nin Yer Şekilleri,90
+2,Coğrafya,Türkiye’de Toprak ve Tipleri,120
+2,Coğrafya,Bitki,30
+2,Coğrafya,Yeryüzünde Su Varlığı,90
+2,Coğrafya,Yeryüzünde Bitki Türlerinin Sınıflandırılması,90
+2,Coğrafya,Nüfus ve Yerleşme,75
+2,Coğrafya,Küresel Ortam: Bölgeler,60
+2,Coğrafya,Küresel Çevre Sorunları,30
