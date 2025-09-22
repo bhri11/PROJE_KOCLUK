@@ -21,6 +21,14 @@ from core.assignments import (
 from core.resources import get_resources
 from core.resources import get_resources, load_resources
 
+from core.export import assignments_to_pdf
+
+from core.dataio import (
+    load_settings, level_to_col, load_topics,
+    load_students, add_student,
+    get_last_selected_student, set_last_selected_student   # <<< EKLENDİ
+)
+
 # --- Stil ---
 st.markdown("""
 <style>
@@ -64,8 +72,31 @@ if students.empty:
     st.stop()
 
 student_name_to_id = {row.student_name: int(row.student_id) for _, row in students.iterrows()}
-student_name = st.sidebar.selectbox("Öğrenci seç", list(student_name_to_id.keys()))
+names = list(student_name_to_id.keys())
+
+# Kalıcı son seçim
+last_sid = get_last_selected_student("koc_panel")
+if last_sid is not None and last_sid in student_name_to_id.values():
+    # ID -> isim
+    try:
+        last_name = next(n for n, i in student_name_to_id.items() if i == last_sid)
+        default_idx = names.index(last_name)
+    except StopIteration:
+        default_idx = 0
+else:
+    default_idx = 0
+
+student_name = st.sidebar.selectbox(
+    "Öğrenci seç",
+    names,
+    index=default_idx,
+    key="koc_student_select"
+)
 student_id = student_name_to_id[student_name]
+
+# Her değişimde kalıcı olarak yaz
+set_last_selected_student(student_id, "koc_panel")
+
 
 # -----------------------------
 # Tarih / Hafta
@@ -102,10 +133,22 @@ def fmt_amount(birim: str, miktar: int) -> str:
 # -----------------------------
 # BU HAFTANIN HEDEFLERİ
 # -----------------------------
+# PDF indir butonu
+
+
 st.subheader("✅ Bu Haftanın Hedefleri")
 
 df_assign = get_assignments(student_id, hafta_baslangic).sort_values(["ders","birim","konu","kaynak"])
-
+if not df_assign.empty:
+    col_pdf_l, col_pdf_r = st.columns([0.7, 0.3])
+    with col_pdf_r:
+        pdf_bytes = assignments_to_pdf(df_assign, student_name, hafta_baslangic, hafta_bitis)
+        st.download_button(
+            label="📄 Haftalık Ödev PDF'i indir",
+            data=pdf_bytes,
+            file_name=f"odev_{student_name.replace(' ', '_')}_{hafta_baslangic}.pdf",
+            mime="application/pdf"
+        )
 if df_assign.empty:
     st.info("Bu hafta için hedef atanmadı. Aşağıdan **Yeni Hedef Ekle** kısmını kullan.")
 else:

@@ -140,3 +140,33 @@ def append_progress(date_str: str, topic: str, minutes: int, student_id: int = 1
     new_row = {"date": date_str, "topic": topic, "minutes": int(minutes), "student_id": int(student_id)}
     df2 = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
     save_progress(df2)
+
+# ---------- UI State (kalıcı tercihler) ----------
+UI_STATE_FILE = DATA / "ui_state.json"
+
+def _load_ui_state() -> dict:
+    try:
+        with UI_STATE_FILE.open("r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+def _save_ui_state(state: dict):
+    UI_STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with UI_STATE_FILE.open("w", encoding="utf-8") as f:
+        json.dump(state, f, ensure_ascii=False, indent=2)
+
+def get_last_selected_student(page: str = "koc_panel") -> int | None:
+    """Son seçili öğrenci ID'sini döner (yoksa None)."""
+    state = _load_ui_state()
+    try:
+        val = state.get("last_selected_student", {}).get(page)
+        return int(val) if val is not None else None
+    except Exception:
+        return None
+
+def set_last_selected_student(student_id: int, page: str = "koc_panel") -> None:
+    """Son seçili öğrenci ID'sini kalıcı olarak kaydeder."""
+    state = _load_ui_state()
+    state.setdefault("last_selected_student", {})[page] = int(student_id)
+    _save_ui_state(state)

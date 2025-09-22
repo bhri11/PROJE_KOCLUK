@@ -131,3 +131,78 @@ student_id,subject,topic,target_min
 2,Coğrafya,Nüfus ve Yerleşme,75
 2,Coğrafya,Küresel Ortam: Bölgeler,60
 2,Coğrafya,Küresel Çevre Sorunları,30
+5,Matematik,Temel Kavramlar (Sayılar),600
+5,Matematik,Sayı Basamakları ve Çözümleme,270
+5,Matematik,Bölme ve Bölünebilme,330
+5,Matematik,"Asal Sayılar, Asal Çarpanlara Ayırma",240
+5,Matematik,OBEB – OKEK,360
+5,Matematik,Rasyonel Sayılar - Ondalık Sayılar,240
+5,Matematik,Basit Eşitsizlikler,225
+5,Matematik,Mutlak Değer,510
+5,Matematik,Üslü Sayılar,360
+5,Matematik,Köklü Sayılar,330
+5,Matematik,Çarpanlara Ayırma,360
+5,Matematik,Oran-Orantı,330
+5,Matematik,Denklem Çözme (1. Dereceden Denklemler),300
+5,Matematik,Problemler,1500
+5,Matematik,Mantık,180
+5,Matematik,Kümeler ve Kartezyen Çarpımı,195
+5,Matematik,Fonksiyonlar ve Grafikleri,510
+5,Matematik,Polinomlar,405
+5,Matematik,"Permütasyon, Kombinasyon",450
+5,Matematik,Binom,135
+5,Matematik,"Olasılık, İstatistik",480
+2,Geometri,Doğruda Açılar,120
+2,Geometri,Üçgende Açılar,195
+2,Geometri,"Dik Üçgen, Özel Üçgenler ve Dik Üçgende Trigonometrik Bağlantılar",315
+2,Geometri,İkizkenar Üçgen,240
+2,Geometri,Eşkenar Üçgen,225
+2,Geometri,Üçgende Açıortay,210
+2,Geometri,Üçgende Kenarortay,210
+2,Geometri,Üçgende Eşlik ve Benzerlik,360
+2,Geometri,Üçgende Alan,300
+2,Geometri,Üçgende Merkezler,210
+2,Geometri,Üçgende Açı Kenar Bağıntıları,270
+2,Geometri,Çokgenler,435
+2,Geometri,Dörtgenler,240
+2,Geometri,Paralelkenar,345
+2,Geometri,Eşkenar Dörtgen,240
+2,Geometri,Deltoid,195
+2,Geometri,Dikdörtgen,285
+2,Geometri,Kare,270
+2,Geometri,Yamuk,360
+2,Geometri,Çemberde Açılar,390
+2,Geometri,Çemberde Uzunluk,360
+2,Geometri,Dairenin Çevresi ve Alanı,420
+2,Geometri,Noktanın Analitik İncelenmesi,195
+2,Geometri,Doğrunun Analitik İncelenmesi,600
+2,Geometri,Çemberin Analitik İncelenmesi (Çember Analitiği),480
+2,Geometri,Dönüşüm Geometrisi,315
+2,Geometri,Katı Cisimler,630
+5,Geometri,Doğruda Açılar,180
+5,Geometri,Üçgende Açılar,270
+5,Geometri,"Dik Üçgen, Özel Üçgenler ve Dik Üçgende Trigonometrik Bağlantılar",450
+5,Geometri,İkizkenar Üçgen,360
+5,Geometri,Eşkenar Üçgen,300
+5,Geometri,Üçgende Açıortay,360
+5,Geometri,Üçgende Kenarortay,330
+5,Geometri,Üçgende Eşlik ve Benzerlik,570
+5,Geometri,Üçgende Alan,510
+5,Geometri,Üçgende Merkezler,300
+5,Geometri,Üçgende Açı Kenar Bağıntıları,390
+5,Geometri,Çokgenler,600
+5,Geometri,Dörtgenler,330
+5,Geometri,Paralelkenar,480
+5,Geometri,Eşkenar Dörtgen,300
+5,Geometri,Deltoid,270
+5,Geometri,Dikdörtgen,420
+5,Geometri,Kare,390
+5,Geometri,Yamuk,510
+5,Geometri,Çemberde Açılar,540
+5,Geometri,Çemberde Uzunluk,495
+5,Geometri,Dairenin Çevresi ve Alanı,660
+5,Geometri,Noktanın Analitik İncelenmesi,300
+5,Geometri,Doğrunun Analitik İncelenmesi,900
+5,Geometri,Çemberin Analitik İncelenmesi (Çember Analitiği),690
+5,Geometri,Dönüşüm Geometrisi,450
+5,Geometri,Katı Cisimler,1080

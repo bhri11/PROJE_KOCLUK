@@ -27,3 +27,11 @@ week_start,student_id,ders,konu,birim,miktar,kaynak,durum
 2025-09-08,4,Türkçe,"Cümle Bilgisi, Yorumu ve Cümlede Kavramlar (Cümlede Anlam)",Dakika,120,,True
 2025-09-08,2,Matematik,Polinomlar,Dakika,90,,False
 2025-09-08,2,Matematik,OBEB – OKEK,Dakika,180,,True
+2025-09-15,5,Geometri,Üçgende Açılar,Soru,40,345 Yayinlari TYT Geometri Konu Anlatimli Soru Bankasi,False
+2025-09-15,5,Matematik,Üslü Sayılar,Soru,30,345 TYT Matematik Soru Bankası,False
+2025-09-15,5,Biyoloji,"Bilimsel Bilginin Doğası, Biyoloji Bilimi ve Canlıların Ortak Özellikleri",Video,2,1) TYT 2026 BİYOLOJİ - CANLILARIN ORTAK ÖZELLİKLERİ - ADIM ADIM ZİRVEYE,False
+2025-09-15,5,Coğrafya,Çevre ve İnsan,Video,1,1) KPSS - MEB / AGS Coğrafya - Coğrafyaya Giriş - Bayram Meral - 2026,False
+2025-09-15,5,Fizik,Fizik Bilimine Giriş,Video,3,Umut Öncül | Fizik Bilimine Giriş #1 | PDF | 2025,False
+2025-09-15,5,Kimya,Kimya Bilimine Giriş,Video,1,Kimya Bilimi - TYT Kimya 1.Gün | #kampplus #YKS2024,False
+2025-09-15,5,Tarih,Tarih Bilimine Giriş ve Uygarlık Tarihi,Video,1,1) Geçmişin İnşa Sürecinde Tarih | TYT-Tarih | Mehmet Celal ÖZYILDIZ - 2026,False
+2025-09-15,5,Türkçe,"Sözcükte Anlam, Deyimler ve Atasözleri",Video,2,9. Sınıf Edebiyat - Türk Dili ve Edebiyatı - Giriş - 1 | 2022,False
